@@ -1,0 +1,57 @@
+Command git bash
+
+pwd = cek posisi 
+ls = cek folder + -a unuk melihat yg hidden
+cd = mirip cd cmd
+clear = mirip cls cmd
+rm = untuk menghapus folder + -rf
+
+perintah git
+
+
+git init = untuk menginisiasi folder repo
+
+git status = untuk melihat file yg belum di masukan ke tree
+
+git add = untuk memasukan file yg belum masuk ke tree
+ *git add . = menambahkan semua ke tree
+
+git commit = untuk mengcommit
+ *git commit -m "pesan" = cara membuat commit
+ *git commit -am "pesan" = mengcommit file yg modify
+
+git branch = untuk mengecek branch
+ *git branch nama-branch = membuat branch
+ *git branch -d nama-branch = untuk menghapus branch
+ *git branch --merged = untuk mengecek branch yg sudah di merge
+ 
+git log = untuk melihat commit yg sudah di lakukan
+ *git log --all --decorate --oneline --graph = melihat commit deng graph
+ *alias graph = "git log --all --decorate --oneline --graph" = menyingkat
+
+git checkout = untuk pindah commit atau7 branch
+ *git checkout nama branch or commit = caranya
+ *git checkout nama  commit 7digit = caranya
+
+git merge = untuk merge branch
+ *git merge nama-branch = caranya
+
+git remote = untuk melihat nama remote
+ *git remote -v = melihat lebih detail remote
+
+git push = umtuk push kode ke remote
+git -f push =secara paksa sehingga commit yang sebelumnya terhapus
+
+git config = untuk melihat setting dari git
+ *git config --global user.name = mengubah username git secara global
+ *git config --global user.email = mengubah email git secara global
+
+git fetch = untuk mengecek commit di remote
+
+git pull = untuk mengambil commit di remote 
+
+git rebase = untuk workflow rebase beda dari workflow merge
+
+github.com/github/gitignore or gitignore.io = untuk web penyedia file yg harus d ignore
+
+menulis development di akhir slash | src tryhackme

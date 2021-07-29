@@ -1,0 +1,139 @@
+request
+GET : Digunakan untuk mengambil informasi dari Web API.
+POST : Digunakan untuk menambahkan data.
+PUT : Digunakan untuk mengubah data.
+DELETE : Digunakan untuk menghapus data.
+
+response    
+200 (OK) : Request berhasil dipenuhi oleh server (Web API).
+400 (Bad Request) : Server tidak mengerti request yang dikirimkan client.
+401 (Unauthorized) : Request membutuhkan authorization.
+403 (Forbidden) : Server mengerti request dari client namun menolak untuk 
+		  memprosesnya karena request tersebut tidak boleh dilakukan.
+404 (Not Found) : Resource yang client minta, tidak ditemukan.
+500 (Server Error) : Server mengalami kendala untuk memproses request.
+
+source : dicoding frontend fundamental
+
+-tipe data const,let dan var
+
+-template literals yaitu menyambung string dengan data tanpa +
+`string ${data}`
+
+-destructuring object dan array
+const favorites = {1:"Seafood", 2:"Salad", 3:"Nugget", 4:"Soup"};//object
+const favorites = ["Seafood", "Salad", "Nugget", "Soup"];//array
+const [firstFood, secondFood, thirdFood, fourthFood] = favorites;//destructuring
+
+-spreading operator yaitu membentangkan data dengan cara penambahan ... untuk array
+console.log(...favorites);
+
+-rest parameter yaitu ... kebalkan dari spread untuk menerima banyak parameter menjadi array
+function sum(...numbers) {
+    var result = 0;
+    for(let number of numbers) {
+        result += number
+    }
+    return result;
+}
+ 
+console.log(sum(1,2,3,4,5));
+
+-arrow function yaitu penyederhanaan regular function mejadi lebih singkat
+-perbedaan arrow dengan regular adalah 
+	lebih singkat
+	nilai this nya
+let arrow = () => {}
+
+-Synchronous adalah program yang berjalan secara linear
+-Asynchronous adalah program yang berjalan secara paraler
+
+-promise yaitu sebuah object untuk menangani data yang di hasilkan dari program asynchronous
+-promise memiliki parameter resolve()/berhasil dan reject()/gagal
+	const executorFunction = (resolve, reject) => {
+ 	const isCoffeeMakerReady = true;
+	 if(isCoffeeMakerReady) {
+   	resolve("Kopi berhasil dibuat");
+	 } else {
+	   reject("Mesin Kopi tidak bisa digunakan!")
+	 }
+	}
+ 
+	const makeCoffee = new Promise(executorFunction);
+	console.log(makeCoffee);
+
+-.the() dan .catch() untuk menangani nilai dari resolve dan reject
+	const executorFunction = (resolve, reject) => {
+ 	const isCoffeeMakerReady = false;
+ 	if(isCoffeeMakerReady) {
+   		resolve("Kopi berhasil dibuat");
+ 	} else {
+   		reject("Mesin Kopi tidak bisa digunakan!")
+ 		}
+	}
+ 
+	const handlerSuccess = coffee => {
+	 	console.log(coffee);
+	}
+ 
+	const handlerRejected = rejectionReason => {
+	 	console.log(rejectionReason)
+	}
+ 
+	const makeCoffee = new Promise(executorFunction);
+	makeCoffee.then(handlerSuccess).catch(handlerRejected)
+ 
+
+
+-async/await yaitu penulisan program baru kombinasi promise dan generator
+async function makeCoffee() {
+async function reserveACoffee(type, miligrams) {
+ try {
+   const seeds = await getSeeds(type, miligrams);
+   const coffee = await makeCoffee(seeds);
+   const result = await servingToTable(coffee);
+   console.log(result);
+ } catch(rejectionReason) {
+   console.log(rejectionReason);
+ }
+}
+ 
+reserveACoffee("liberica", 80);
+
+-module ES6 yaitu export import javascript terbaru dengan cara mengunakan type="module"
+
+-konsep webpack 
+Entry : Titik awal di mana webpack akan menganalisa berkas dan membentuk dependency graph.
+Output : Berkas bundel yang dihasilkan dari berkas-berkas yang dianalisis webpack 
+	 berdasarkan entry point.
+Loaders : Transformation tools pada webpack, yang akan memproses setiap berkas selain 
+	  JavaScript atau JSON yang kita impor menjadi format yang dapat digunakan ke 
+	  tahap produksi.
+Plugin : Digunakan untuk melakukan tugas seperti optimasi bundel, management aset dan 
+	 sebagainya.
+Mode : Kondisi yang digunakan webpack sebagai acuan optimasi apa saja yang harus diterapkan 
+       dalam melakukan tugasnya. Dalam mode kita dapat menetapkan nilai production, 
+       development atau pun none
+
+-yang harus diinstall agar webpack berjalan optimal
+    @babel/core
+    @babel/preset-env
+    babel-loader
+    css-loader
+    html-loader
+    html-webpack-plugin
+    style-loader
+    webpack
+    webpack-cli
+    webpack-dev-server
+    webpack-merge
+
+    npm install regenerator-runtime
+npm install @babel/core @babel/preset-env babel-loader css-loader html-loader html-webpack-plugin style-loader webpack webpack-cli webpack-dev-server webpack-merge --save-dev
+
+-ada dua tipe objek package yaitu
+dependencies = npm install <package-name> 
+devdepedencies = npm install <package-name> --save-dev
+
+-cara mengecek package yang sudah di install secara global
+    npm list -g --depth=0

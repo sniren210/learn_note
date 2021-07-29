@@ -1,0 +1,371 @@
+./keytool.exe  -list -v -keystore "C:\Users\Acer\.android\debug.keystore" -alias androiddebugkey -storepass android -keypass android
+
+
+SCRCPY
+
+-menggunakan hp via wireless menggunakan scrpy
+  adb devices harus via usb
+  scrcpy
+  adb tcpip 5555 via wireless
+  adb connect IP address Smartphone:5555
+  scrcpy
+	src : https://www.codepolitan.com/scrcpy-aplikasi-screen-share-android-open-source
+
+-28-08-2020 ip 5555
+=====================================================================
+
+DART
+
+-hello world dart
+import 'dart:io';
+void main(){
+  stdout.write("who are you?");//untuk input
+  var name = stdin.readLineSync("who are you?");//tangkap input
+  print("hello world" + nama);
+}
+
+-variable
+  var judul = "judul";
+  int angka = 1234;
+  double berat = 1.23;
+  String nama = "eduka";
+  bool jujur = true;
+  List angka = ["satu",2,"tiga"];
+  Map user = {"usename" : "user","password" : "pass"};
+
+-fungsi
+import 'dart:io';
+void main(String param1,[String param-opsional]){
+  stdout.write("who are you?");//untuk input
+  var name = stdin.readLineSync("who are you?");//tangkap input
+  print("hello world" + nama);
+}
+
+-lamda fungsi/ arrow function
+String test() => "hello wordl";
+
+================================================================================
+
+WIDGET FLUTTER
+
+-Stateless Widget adalah widget statis dan tidak akan berubah kembali nilainya
+
+-Stateful Widget adalah widget dinamis dan akan berubah kembali nilainya
+
+-container widget adalah untuk dapat properti margin padding dan teks widget child
+*Example : 
+body: Container(
+          padding: EdgeInsets.all(32.0),
+          margin: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 0),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20.0), 
+            color: Colors.purple),
+          // color: Colors.purple,
+          child: Text('Haiii', style: TextStyle(color: Colors.white, fontSize: 20.0),)
+        )
+
+-row widget adalah untuk aliran horizontal widget children
+
+-column widget adalah untuk aliran vertikal widget children
+
+-scaffold widget adalah widget utama untuk membuat sebuah halaman pada flutter,
+  scaffold ini memiliki beberapa parameter yang biasa kita gunakan seperti appBar untuk 
+  membuat AppBar, body untuk bagian tubuhnya, atau kita juga bisa menambahkan floating 
+  action bar, maupun mengganti warna background bodynya.
+*Example : 
+
+Widget build(BuildContext context) {
+  return Scaffold(
+    appBar: AppBar(
+      title: Text('Sample Code'),
+    ),
+    body: Center(
+      child: Text('You have pressed the button $_count times.')
+    ),
+    backgroundColor: Colors.blueGrey.shade200,
+    floatingActionButton: FloatingActionButton(
+      onPressed: () => setState(() => _count++),
+      tooltip: 'Increment Counter',
+      child: const Icon(Icons.add),
+    ),
+  );
+}
+
+-SizeBox yaitu untuk membuat box, widget ini biasanya digunakan 
+  untuk menambahkan jarak baik secara vertikal atau horizontal 
+Example : 
+body: Column(
+          children: <Widget>[
+            Text("A", style: TextStyle(fontSize: 30.0),),
+            SizedBox(height: 20.0,),
+            Text("B", style: TextStyle(fontSize: 30.0),)
+          ],
+        )
+
+-TextFormField merupakan widget yang berguna untuk membuat form untuk diisi user.
+Example : 
+body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Form(
+            child: Column(
+              children: <Widget>[
+                TextFormField(
+                  decoration: InputDecoration(hintText: "Username"),
+                ),
+                TextFormField(
+                  obscureText: true,
+                  decoration: InputDecoration(hintText: "Password"),
+                ),
+                RaisedButton(
+                  child: Text("Login"),
+                  onPressed: () {},
+                )
+              ],
+            ),
+          ),
+        )
+
+-Inkwell berguna untuk menambahkan action pada widget seperti action onTap
+Example : 
+body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: InkWell(
+            onTap: () {
+              print("Ditekan");
+            },
+            child: Container(
+              width: 100.0,
+              height: 100.0,
+              color: Colors.pink,
+            ),
+          )
+        )
+
+================================================================================
+
+ASSETS FLUTTER
+
+edit di pubspec.yml tambah assets: //tidak wajib
+lalu panggil dengan Image.asset(''),
+
+================================================================================
+
+RUN WEB FLUTTER
+
+flutter run -d nama-devices --release
+
+================================================================================
+
+PERPINDAHAN PAGE FLUTTER /  HREF  DI HTML
+
+di dalam widget
+ ( onPressed : (){Navigator.push(context,MaterialPageRoute(builder : (context) => PagePertama))})
+
+push untuk pindah
+Navigator.push(context,MaterialPageRoute(
+	builder : (context) => PagePertama)
+	)
+
+fork(maybe) untuk kembali
+Navigator.fork(context,MaterialPageRoute(
+	builder : (context) => PagePertama)
+	)
+
+================================================================================
+
+LIST VIEW DAN LIST GRID
+
+list view yaitu kalo di html itu ul li
+list grid yaitu kalo di html itu display grid
+
+================================================================================
+
+JSON FLUTTER 
+
+-cara mudah membuat model dari json di flutter dengan menyalin ke :
+  https://app.quicktype.io/
+-memerlukan pkg baru yaitu http di pubspec.yml
+  http: ^0.12.0+2
+-mengelolah data dari model dengan kode : 
+
+import 'dart:convert';
+import 'package:day3_flutter2/ui_view/detail_page.dart';
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:day3_flutter2/modeldata/data.dart';
+import 'dart:async';
+import 'dart:convert';
+
+
+
+class PageListUser extends StatefulWidget {
+  @override
+  _PageListUserState createState() => _PageListUserState();
+}
+
+class _PageListUserState extends State<PageListUser> {
+  // Membuat List Dari data Internet
+  List<ModelUser> listModel = [];
+  var loading = false;
+  
+  Future<Null> getData() async{
+    setState(() {
+      loading = true;
+    });
+    
+    final responseData = await http.get("https://jsonplaceholder.typicode.com/users");
+
+    if(responseData.statusCode == 200){
+      final data = jsonDecode(responseData.body);
+      print(data);
+      setState(() {
+        for(Map i in data){
+          listModel.add(ModelUser.fromJson(i));
+        }
+        loading = false;
+      });
+    }
+  }
+
+  //Panggil Data / Call Data
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getData();
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar:  AppBar(
+        title: Text('Page List User'),
+      ),
+
+      body: Container(
+        child: loading ? Center (child: CircularProgressIndicator()) : ListView.builder(
+          itemCount: listModel.length,
+            itemBuilder: (context, i){
+              final nDataList = listModel[i];
+              return Container(
+                child: InkWell(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => DetailUser(
+                      dName: nDataList.name,
+                      dEmail: nDataList.email,
+                      dPhone: nDataList.phone,
+                      dCity: nDataList.address.city,
+                      dZip: nDataList.address.zipcode,
+                    )));
+                  },
+                  child: Card(
+                    margin: EdgeInsets.all(15),
+                    child: Padding(
+                      padding: EdgeInsets.all(16),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(nDataList.name, style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                              color: Colors.green),
+                          ),
+                          Text(nDataList.email),
+                          Text(nDataList.phone),
+                          Text(nDataList.website),
+
+                          SizedBox(height: 10,),
+                          Text("Address", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                          Text(nDataList.address.street),
+                          Text(nDataList.address.city),
+                          Text(nDataList.address.suite),
+                          Text(nDataList.address.zipcode),
+
+                          SizedBox(height: 10,),
+                          Text("Company", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                          Text(nDataList.company.name),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              );
+            }
+        ),
+      ),
+
+    );
+  }
+}
+
+import 'package:http/http.dart';
+import 'package:slicing_web1/models/covid-all-model.dart';
+import 'dart:async';
+import 'dart:convert';
+
+// ignore: camel_case_types
+class Covid_all {
+  Client client = new Client();
+  List dataModel = [];
+
+  Future<Null> getData() async {
+    print("get data covid All...");
+
+    final resData = await client.get('https://disease.sh/v3/covid-19/all');
+
+    if (resData.statusCode == 200) {
+      final data = jsonDecode(resData.body);
+
+      var datas = covidAllFromJson(resData.body);
+      print(datas);
+      print(data);
+      return datas;
+    } else {
+      print("failed data");
+    }
+  }
+}
+
+
+===========================================================================================
+
+COMMON WIDGET
+
+https://www.youtube.com/watch?v=hLLz_yzLWcU
+
+-Safe area 
+widget ini berguna untuk apabila anda berniat tidak menggunakan widget AppBar dan hanya ingin 
+menggunakan widget Container tapi terkadang saat kita hanya menggunakan Container saja itu akan 
+tertindih dengan tempat notif dengan safe area hal itu tidak akan terjadi 
+
+-Wrap
+Wrap widget berguna seperti flex-wrap di CSS menggantikan widget Column dan Row
+
+-RichText
+RichText ini berguna untuk apabila anda ingin membuat dua kata dengan style yang berbeda dengan cara
+RichText(text: TextSpan(
+	text: "kata 1",
+	style: TextStyle()
+	)
+	children: [
+		TextSpan(
+	text: "kata 1",
+	style: TextStyle()
+	)
+	]
+    )
+
+-Flexible
+Flexible ini berguna untuk tampilan yang responsif dengan cara widget Flexible dan menamban di dalam nya
+flex yang jumlah dari tingginya yaitu 10
+
+-List Tile 
+List Tile adala sebuah widget list yang dapat di swipe untuk menghilangkan list
+
+-Stack
+Stack adalah sebuah widget yang berfungsi untuk menumpuk widget-widget yang ada dan widget ini 
+berguna untuk membuat image dan overlay
+
+-Transform
+Transform ini sama seperti transform di CSS

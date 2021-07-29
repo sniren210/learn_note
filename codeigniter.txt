@@ -1,0 +1,53 @@
+-MY_Model
+
+untuk mencegah query yg sama di ulang-ulang dengan membuat class di application/core
+
+
+-Master_Model
+
+-Crud_Model
+
+
+CODEIGNITER 4
+
+Installation ci4
+composer create-project codeigniter4/appstarter --no-dev
+
+Autentikasi ci4
+-git clone https://github.com/lonnieezell/myth-auth.git
+-edit autoload.php
+$psr4 = [
+    'App'         => APPPATH,               
+    APP_NAMESPACE => APPPATH,             
+    'Config'      => APPPATH . 'Config',
+    'Myth\Auth'   => APPPATH .'ThirdParty/myth-auth/src',
+];
+-edit email.php jika tidak mengaktifkan verifikasi kode
+public $fromEmail = "ilmucoding.com@gmail.com"; 
+public $fromName = "Ilmu Coding"; 
+-edit filters.php
+public $aliases = [
+    'csrf'     => \CodeIgniter\Filters\CSRF::class,
+    'toolbar'  => \CodeIgniter\Filters\DebugToolbar::class,
+    'honeypot' => \CodeIgniter\Filters\Honeypot::class,
+    'login'      => \Myth\Auth\Filters\LoginFilter::class,
+    'role'       => \Myth\Auth\Filters\RoleFilter::class,
+    'permission' => \Myth\Auth\Filters\PermissionFilter::class,
+]; 
+-edit routes.php
+$routes->get('/', 'Home::index');
+$routes->group('', ['filter' => 'login'], function($routes){
+    $routes->get('home', 'Home::home');
+});
+-edit validation.php
+public $ruleSets = [
+    \CodeIgniter\Validation\Rules::class,
+    \CodeIgniter\Validation\FormatRules::class,
+    \CodeIgniter\Validation\FileRules::class,
+    \CodeIgniter\Validation\CreditCardRules::class,
+    \Myth\Auth\Authentication\Passwords\ValidationRules::class,
+]; 
+-ini optional untuk menghilakan fungsi aktivasi thirdParty auth.php
+public $requireActivation = false; 
+-ubah untuk memunculkan remember me 
+public $allowRemembering = true; 

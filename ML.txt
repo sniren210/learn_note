@@ -1,0 +1,12 @@
+-machine learning merupakan salah satu cabang dari artificial intelligent
+-machine learning terbagi menjadi 4 kategori umum yaitu
+  *supervised learning, dataset yang digunakan memiliki label
+  *unsupervised learning, dataset yang digunakan tidak memiliki label
+  *Semi Supervised learning,dataset untuk pelatihan sebagian memiliki label 
+   dan sebagian tidak
+  *Reinforcement Learning adalah model yang belajar menggunakan sistem reward dan penalties
+-.head() untuk menampilkan 5 baris dataframe
+-membagi datasets menjadi dua 80% training sets dan 20% test sets
+-Train test validation set data training sets dibagi lagi
+ menjadi dua 80% train sets dan 20% validation sets
+-Cross validation

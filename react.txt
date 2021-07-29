@@ -1,0 +1,6 @@
+-pembuatan project react yaitu 
+ npx create-react-app nama-folder
+
+-kalo tidak ada node_modules ketik npm install
+
+-agar tidak muncul error npm install -s

@@ -1,0 +1,131 @@
+-perpus-laravel
+
+setelah itu php artisan key:generate
+jangan lupa buat database (perpusku_gc) di phpmyadmin
+langkah selanjutnya setting database nya di .env
+jalankan php artisan migrate
+jalankan juga php artisan db:seed
+terakhir php artisan serve
+
+-larapes
+
+Generate app key untuk aplikasi dengan perintah php artisan key:generate
+Daftar ke https://www.google.com/recaptcha pada file .env isi NOCAPTCHA_SECRET dan NOCAPTCHA_SITEKEY dengan key yang didapatkan dari https://www.google.com/recaptcha
+Daftar ke http://www.mailgun.com. Pada file .env isi MAILGUN_DOMAIN dengan data dari https://mailgun.com/app/domains dan isi MAILGUN_SECRET dengan data private api key dari https://mailgun.com/app/account/settings
+Sesuai konfigurasi database
+Migrasi dan seed database dengan php artisan migrate:refresh --seed
+Jalankan simple web server dengan php artisan serve
+
+-install 
+
+composer create-project --prefer-dist laravel/laravel latihan-laravel
+composer create-project --prefer-dist laravel/laravel blog "5.3.*"
+
+-buat controller deafult
+
+php artisan make:controller MahasiswaController --resource
+
+-untuk bisa menggunakan DB
+
+use illuminate\support\Facades\DB
+ 
+-untuk debug vardump die
+
+dd() atau dump()
+
+-unuk bisa menggunakan make:auth dan css js
+
+composer require laravel/ui -vvv
+php artisan ui vue --auth
+-note: vue bisa d ganti dengan apapun
+npm install
+npm run dev
+
+-untuk bisa menggunakan auth laravel 8
+
+composer require laravel/jetstream
+php artisan jetstream:install livewire OR
+php artisan jetstream:install inertia
+npm install
+npm run dev
+
+- cara menjalankan SC laravel orang lain
+
+composer install
+buat .env
+php artisan key:generate
+php artisan migrate
+php artisan db:seed
+php artisan serve
+
+-migrate shortcut
+php artisan make:migrate nama_tabel --create-namatabel
+
+-cara mengatasi tabel plural atau jamak S
+dengan mengetikan protected $tabel = 'nama_tabel'
+
+-menggunakan asset
+asset()
+
+-cara mengedit migrate dari rename drop create
+Schema::rename('nama_lama','nama_baru')
+Schema::drop('nama_tabel')
+
+-cara buat pdf
+composer require barryvdh/laravel-dompdf
+atur app
+liat di learn laravel
+
+-cara export excel
+composer require maatwebsite/excel
+atur di app
+php artisan vendor:publish --provider="Maatwebsite\Excel\ExcelServiceProvider"
+php artisan make:export nama export --model=nama model
+
+-cara import excel
+langkah awal sama dengan export
+php artisan make:import nama import --model=nama model
+ 
+-cara custom error
+php artisan vendor:publish --tag=laravel-errors
+
+-cara relasi laravel
+foreign key harus nama tabel dan id
+
+-cara relasi one to one
+hasOne() di salah satu tabel dan belongsTo() di tabel satunya
+
+-cara relasi one to many
+hasMany() di salah satu tabel dan belongsTo() di tabel satunya
+
+-cara relasi many to many
+belongsToMany() di kedua tabel dan tidak masukan apa-apa di tabel ketiga 
+
+-cara untuk merefresh database di laravel
+php artisan migrate:fresh
+
+-cara agar verified email
+tambah implements MustVerifyEmail di model
+
+-cara multilevel laravel
+pertama dengan menambahkan role di table user
+kedua bisa dengan guest di auth laravel
+
+-tips cara cepat perintah artisan 
+membuat model terlebih dahulu yg perintah - akan memberi perintah membuat controller 
+dan migrate
+
+-cara buat api dengan passport
+  composer require laravel/passport
+  php artisan passport:install
+  pastikan model user memiliki use Laravel\Passport\HasApiTokens
+  aktifkan komentar di $policies
+  ubah driver token jadi passport
+  sisanya tinggal buat controller dan route
+--note : composer require laravel/passport=~9.0 for laravel 7
+
+-cara buat pwa laravel
+  composer require silviolleite/laravelpwa --prefer-dist
+  php artisan vendor:publish --provider="LaravelPWA\Providers\LaravelPWAServiceProvider"
+  Configure your app name, description, icons and splashes in config/laravelpwa.php.
+  tambah @laravelPWA di head

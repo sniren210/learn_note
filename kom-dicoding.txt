@@ -1,0 +1,43 @@
+challenge idcamp SDGs
+
+target : 17 tujuan SDGs 
+tema : pelaporan dan usaha kami
+desc app : aplikasi yang menunjukan hanya 2,page yang isi dari page pertama yaitu form untuk
+	melaporkan tempat yang bertujuan untuk di perbaiki dengan memfilter dari 17 tujuan SDGs
+	yang bertujuan agar mendapatkan data tempat-tempat yang membutuhkan perbaikan dari 17 tujuan
+	SDGs sehingga pemerintah bisa memperbaiki tempat yang spesifik, page kedua berisi
+	form yang menanyakan ingin memperbaiki tujuan yang mana sehingga akan ada metode sederhana
+	untuk bisa di selesaikan sendiri
+seperti PROPOSAL
+PENGAJUAN BANTUAN TONG SAMPAH
+DUSUN DADAPBONG KELURAHAN SENDANG SARI
+KECAMATAN PAJANGAN KABUPATEN BANTUL
+
+Tujuan Dari Website PERAN : 
+Tujuan 1 - Tanpa kemiskinan
+Tujuan 2 - Tanpa kelaparan
+Tujuan 3 - Kehidupan sehat dan sejahtera
+Tujuan 4 - Pendidikan berkualitas
+Tujuan 5 - Kesetaraan gender
+Tujuan 6 - Air bersih dan sanitasi layak
+Tujuan 7 - Energi bersih dan terjangkau
+Tujuan 8 - Pekerjaan layak dan pertumbuhan ekonomi
+Tujuan 9 - Industri, inovasi dan infrastruktur
+Tujuan 10 - Berkurangnya kesenjangan
+Tujuan 11 - Kota dan komunitas berkelanjutan
+Tujuan 12 - Konsumsi dan produksi yang bertanggung jawab
+Tujuan 13 - Penanganan perubahan iklim
+Tujuan 14 - Ekosistem laut
+Tujuan 15 - Ekosistem daratan
+Tujuan 16 - Perdamaian, keadilan dan kelembagaan yang tangguh
+Tujuan 17 - Kemitraan untuk mencapai tujuan
+
+Target Dari Website PERAN Yaitu untuk mencapai tujuan 17 SDGs dengan cara :
+Aduan yang di lakukan oleh masyarakat sehinggan pemerintah dapat menindak lanjut dan,
+Saran dari pemerintah yang untuk dapat memudahkan masyarakat yang ingin mewujudkan tujuan 17 SDGs dengan tangannya sendiri.
+Kesimpulannya yaitu Target Website PERAN itu untuk masyarkat dan pemerintah dapat menggunakan perannya untuk mewujudkan tujuan 17 SDGs bersama.
+
+link demo : https://youtu.be/ggrKT3l0uUk
+link posting IG : https://www.instagram.com/p/CEJ6nTBDkym/
+
+Note : "maaf bapak/ibu juri di karenakan link website PERAN ada gangguan dengan website hostingnya jadi saya kirim kembali dengan link google drive"

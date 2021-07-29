@@ -1,0 +1,24 @@
+ini merupakan tulisan ku yang beralasan dari pengalaman ku sendiri dan niatnya ingin d upload
+ke medsos mana saja dan itu cuman niatnya tidak tau kalo ke depannya
+
+BUMPER AWAL
+
+Disclaimer ini merupakan hanya tulisan berasal dari pengalaman penulis jadi kalo ada ketidak
+nyambungan dan ketidak jelasan harap di maklumi dan kalo bisa di kritik penulisnya 
+
+BUMPER AKHIR
+
+itulah tulisan asal dari ... kalo ingin like silahkan di like kalo ingin di kritik silahkan 
+dan juga kalo ingin di hated silahkan ku sangat terbuka
+
+-dulu ku melihat diriku dan melihat orang lain melalukan keahliannya ku mengira ku juga
+memiliki keahlian tapi ternyata salah ku tidak memiliki keahlian khusus semuanya hanyalah
+standar yg dapat dimiliki semua orang dengan sedikit berusaha dan itu melambangkan 
+kesombongan diri sendiri 
+
+-harus meulai berusaha lebih keras sangat keras kalo ingin mencapai tujuan akhir yng di 
+inginkan dan ku sangat malas untuk melakukannya ANJIR BANGKE
+
+npm install prettier @prettier/plugin-php 
+
+SET GLOBAL innodb_strict_mode = 0;

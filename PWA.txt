@@ -1,0 +1,28 @@
+CARA MENJALANKAN PWA
+
+* Menggunakan PWA dapat menggunakan dengan local server chrome download ke
+  https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en
+
+* Menggunakan PWA dengan USB
+  -Buka pengaturan Developer Options dan aktifkan Enable USB Debugging di perangkat Android
+  -Di jendela Google Chrome, buka DevTools lalu klik menu berbentuk 3 titik di kanan atas  > More Tools > Remote devices
+  -Di jendela Remote devices yang muncul, pastikan opsi Discover USB devices tercentang di tab Settings.
+  -Di jendela Remote devices, buka tab yang menunjukkan nama perangkat Android yang telah terhubung 
+  -Dengan menggunakan Remote debugging ini, kita dapat menginspeksi website di browser Chrome yang ada di perangkat Android melalui 
+   komputer kita.
+
+* Menggunakan PWA dengan Port Forwarding
+  -Pada DevTools, di bagian Settings pada Remote Device, tambahkan port fowarding dengan memberi tanda centang di bagian 
+   Port forwarding
+  -Buka aplikasi Chrome di Android.
+  -Pada kotak input di sebelah New tab, tuliskan alamat localhost:8887 dan klik Open.
+  
+* Menggunakan PWA dengan Ngrok
+Ngrok adalah aplikasi yang memungkinkan kita untuk dapat mengekspos aplikasi di komputer lokal kita ke jaringan internet tanpa harus mengunggah dahulu aplikasi kita ke server hosting. Ngrok akan menghubungkan komputer kita dengan server ngrok dan menyediakan subdomain dari ngrok. Baik dalam protokol http maupun https. Kamu dapat 
+memberikan subdomain tersebut kepada teman atau klienmu di 
+jaringan lain untuk dapat mengakses aplikasi web yang ada di komputermu.
+  -pertama unduh di https://ngrok.com/download
+  -jalankan perintah ngrok http 8887 di foldernya
+
+* Cara Mengetes Performa PWA di inspect elemn
+Pada tab Audits kamu dapat mengetes performa aplikasi web dan juga mengecek kelengkapan komponen yang harus ada di dalam sebuah PWA menggunakan tool bernama LightHouse.

@@ -1,0 +1,192 @@
+Tipe Data Dart
+
+-int	Integer (bilangan bulat)	
+5, -7, 0
+-double	Bilangan desimal	
+3.14, 18.0, -12.12
+-num	Bilangan bulat dan bilangan desimal	
+5, 3.14, -99.00
+-bool	Boolean	
+true, false
+-String	Teks yang terdiri dari 0 atau beberapa karakter	
+‘Dicoding’, ‘Y’, ‘’
+-List	Daftar nilai	
+[1, 2, 3], [‘a’, ‘b’, ‘c’]
+-Map	Pasangan key-value	
+{“x”: 4, “y”: 10}
+-dynamic Tipe apa pun Var
+
+==============================================================
+
+Operato Dart
+
++	Penjumlahan
+-	Pengurangan
+*	Perkalian
+/	Pembagian
+~/	Pembagian, mengembalikan nilai int
+%	Modulo atau sisa hasil bagi
+
+    print(5 + 2);   // int add = 7
+    print(5 - 2);   // int subtract = 3
+    print(5 * 2);   // int multiply = 10
+    print(5 / 2);   // double divide = 2.5
+    print(5 ~/ 2);  // int intDivide = 2
+    print(5 % 2);   // int modulo = 1
+
+===============================================================
+
+Try Catch Dart 
+
+    try {
+      var a = 7;
+      var b = 0;
+      print(a ~/ b);
+    } catch(e, s) {
+      print('Exception happened: $e');
+      print('Stack trace: $s');
+    } finally {
+      print('This line still executed');
+    }
+
+==============================================================
+
+Function dan Const/Final
+
+    const num pi = 3.14;
+     
+    void main() {
+      var radius = 7;
+      print('Luas lingkaran dengan radius $radius = ${calculateCircleArea(radius)}');
+    }
+     
+    num calculateCircleArea(num radius) => pi * radius * radius;
+
+===============================================================
+
+Percabangan 
+
+String calculateScore(num score) {
+  if (score > 90) {
+    return 'A';
+  } else if (score > 80) {
+    return 'B';
+  } else if (score > 70) {
+    return 'C';
+  } else if (score > 60) {
+    return 'D';
+  } else {
+    return 'E';
+  }
+}
+
+var shopStatus = now > openHours ? "Hello, we're open" : "Sorry, we've closed";
+
+var buyer = name ?? 'user';
+
+=================================================================
+
+Perulangan
+
+ Break
+    void main() {
+      // 20 bilangan prima pertama
+      var primeNumbers = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71];
+      stdout.write('Masukkan bilangan prima : ');
+      var searchNumber = int.parse(stdin.readLineSync());
+     
+      for (int i = 0; i < primeNumbers.length; i++) {
+        if (searchNumber == primeNumbers[i]) {
+          print('$searchNumber adalah bilangan prima ke-${i+1}');
+          break;
+        }
+        print('$searchNumber != ${primeNumbers[i]}');
+      }
+    }
+Continue
+void breakContinue() {
+  for (int i = 1; i <= 10; i++) {
+    if (i % 3 == 0) {
+      continue; tidak akan print angka 3
+    }
+    print(i);
+  }
+}
+
+====================================================================
+
+Class 
+
+//parent class
+
+	//abstraksi agar tidak bisa di inisiasi
+   abstract class Animal {
+	//properti
+      String _name = '';
+      int _age;
+      double _weight = 0;
+     
+      Animal(this._name, this._age, this._weight);//constructor
+     
+      String get name => _name;
+      double get weight => _weight;
+     
+	//method
+      void eat() {
+        print('$_name is eating.');
+        _weight = _weight + 0.2;
+      }
+     
+      void sleep() {
+        print('$_name is sleeping.');
+      }
+    }
+
+//child class
+    import 'Animal.dart';
+     
+    class Cat extends Animal {
+      String furColor;
+     
+      Cat(String name, int age, double weight, String furColor) : super(name, age, weight) {
+        this.furColor = furColor;
+      }
+	// bisa di singkat menjadi
+    Cat(String name, int age, double weight, this.furColor) : super(name, age, weight);
+     
+      void walk() {
+        print('$name is walking');
+      }
+     
+    }
+
+//inisiani class
+
+import 'Cat.dart';
+ 
+void main() {
+  var dicodingCat = Cat('Grayson', 2, 2.2, 'Gray');
+  dicodingCat.walk();
+  dicodingCat.eat();
+  print(dicodingCat.weight);
+}
+ 
+/*
+Output :
+  Grayson is walking
+  Grayson is eating.
+  2.4
+
+======================================================
+
+Rekursif
+
+    int fibonacci(n) {
+      if (n <= 0) {
+        return 0;
+      } else if(n == 1) {
+        return 1;
+      } else {
+        return fibonacci(n - 1) + fibonacci(n - 2);
+      }
+    }

@@ -1,0 +1,2 @@
+-API Berita dari website https://newsapi.org
+b38bbcac1e654ce2949a62acb9529f63
